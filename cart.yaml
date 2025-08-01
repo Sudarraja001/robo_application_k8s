@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cart-deployment
+  labels:
+    app: cart-deploy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cart
+  template:
+    metadata:
+      labels:
+        app: cart
+    spec:
+      containers:
+      - name: cart 
+        image: kubemaster.cluster.local:5000/cart
+        ports:
+        - containerPort: 8080
+
+—
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: cart
+spec:
+  ports:
+  - name: http
+    port: 8080
+    targetPort: 8080
+  selector:
+    app: cart
+
+
