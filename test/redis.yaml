@@ -28,7 +28,7 @@ spec:
       name: data
     spec:
       accessModes: [ "ReadWriteOnce" ]
-      storageClassName: "cnms-storage" 
+      storageClassName: "nfs-client" 
       resources:
         requests:
           storage: 2Gi
