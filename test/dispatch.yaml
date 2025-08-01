@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dispatch-deployment
+  labels:
+    app: dispatch-deploy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: dispatch
+  template:
+    metadata:
+      labels:
+        app: dispatch
+    spec:
+      containers:
+      - name: dispatch
+        image: kubemaster.cluster.local:5000/dispatch:latest
+       
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: dispatch
+  labels:
+    service: dispatch
+spec:
+  clusterIP: None
+  ports:
+  - name: headless
+    port: 55555
+  selector:
+    app: dispatch
+
+
+

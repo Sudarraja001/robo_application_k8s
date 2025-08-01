@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ratings-deployment
+  labels:
+    app: ratings-deploy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ratings
+  template:
+    metadata:
+      labels:
+        app: ratings
+    spec:
+      containers:
+      - name: ratings
+        image: kubemaster.cluster.local:5000/ratings:latest
+
+       
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: ratings
+  labels:
+    service: ratings
+spec:
+  ports:
+  - name: http
+    port: 80
+    targetPort: 8080
+  selector:
+    app: ratings

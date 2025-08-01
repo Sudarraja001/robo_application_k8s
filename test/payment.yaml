@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment-deployment
+  labels:
+    app: payment-deploy
+    stage: prod
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: payment
+      stage: prod
+  template:
+    metadata:
+      labels:
+        app: payment
+        stage: prod
+    spec:
+      containers:
+      - name: payment
+        image: kubemaster.cluster.local:5000/payment:latest
+        ports:
+        - containerPort: 8080
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: payment
+  labels:
+    service: payment
+spec:
+  ports:
+  - name: http
+    port: 8080
+    targetPort: 8080
+  selector:
+    app: payment
+
+
