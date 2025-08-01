@@ -2,17 +2,17 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: robo-argo-application
-  namespace: robo
+  namespace: argocd
 spec:
   project: default
 
   source:
     repoURL: https://github.com/Sudarraja001/robo_application_k8s.git
     targetRevision: HEAD
-    path: root
+    path: test
   destination: 
     server: https://kubernetes.default.svc
-    namespace: robo
+    namespace: roboapp
 
   syncPolicy:
     syncOptions:
