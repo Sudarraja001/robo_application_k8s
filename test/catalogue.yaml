@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: catalogue
-        image: kubemaster.cluster.local:5000/catalogue:v1
+        image: kubemaster.cluster.local:5000/catalogue:latest
         imagePullPolicy: IfNotPresent
         env:
           - name: INSTANA_AGENT_HOST
