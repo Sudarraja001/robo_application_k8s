@@ -5,7 +5,7 @@ metadata:
   labels:
     app: cart-deploy
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: cart
@@ -19,8 +19,7 @@ spec:
         image: kubemaster.cluster.local:5000/cart:latest
         ports:
         - containerPort: 8080
-
-—
+---
 
 apiVersion: v1
 kind: Service
