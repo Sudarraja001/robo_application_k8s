@@ -19,6 +19,13 @@ spec:
         image: kubemaster.cluster.local:5000/mysql:latest
         ports:
         - containerPort: 3306
+        resources:
+          requests:
+            memory: "400Mi"
+            cpu: "250m"
+        limits:
+          memory: "600Mi"
+          cpu: "500m"
 
 ---
 
