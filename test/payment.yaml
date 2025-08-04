@@ -6,7 +6,7 @@ metadata:
     app: payment-deploy
     stage: prod
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: payment
