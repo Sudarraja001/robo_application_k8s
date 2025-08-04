@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: web
-        image: kubemaster.cluster.local:5000/web:v1
+        image: kubemaster.cluster.local:5000/webapp:latest
         ports:
         - containerPort: 8080
 
@@ -32,7 +32,7 @@ spec:
   ports:
   - name: http
     port: 8080
-    targetPort: 80
+    targetPort: 8080
     nodePort: 30080  # Optional: Specify a static NodePort (range: 30000-32767)
   selector:
     app: web
