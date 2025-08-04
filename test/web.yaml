@@ -32,7 +32,7 @@ spec:
   ports:
   - name: http
     port: 8080
-    targetPort: 8080
+    targetPort: 80
     nodePort: 30080  # Optional: Specify a static NodePort (range: 30000-32767)
   selector:
     app: web
