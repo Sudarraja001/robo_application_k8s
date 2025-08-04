@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: web
-        image: kubemaster.cluster.local:5000/web:latest
+        image: kubemaster.cluster.local:5000/web:v1
         ports:
         - containerPort: 8080
 
