@@ -20,6 +20,13 @@ spec:
         ports:
         - containerPort: 5672
         - containerPort: 15672
+        resources:
+          requests:
+            memory: "400Mi"
+            cpu: "250m"
+        limits:
+          memory: "600Mi"
+          cpu: "500m"
 
 ---
 
@@ -42,5 +49,3 @@ spec:
     targetPort: 4369
   selector:
     service: rabbitmq
-
-
